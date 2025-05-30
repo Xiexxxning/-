@@ -1,0 +1,170 @@
+body {
+  margin: 0;
+  font-family: 'Microsoft YaHei', sans-serif;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #007acc;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 24px;
+}
+
+main {
+  display: flex;
+  align-items: flex-start; /* 顶部对齐 */
+  gap: 20px;
+  max-width: 1600px; /* 保持原宽度限制 */
+  margin: 20px auto;  /* 顶部留点距离，居中 */
+  padding: 0 20px;    /* 保持padding，去掉原来main的上下padding */
+}
+
+/* 聊天框占剩余空间，固定高度 */
+.chat-box {
+  flex-grow: 1;
+  height: 800px;          /* 保持固定高度 */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* 去掉width: 100%，让flex-grow生效 */
+}
+
+/* 通用消息结构 */
+.message {
+  display: flex;
+  align-items: flex-start; /* 头像与顶部对齐，保证多行时头像不偏移 */
+  max-width: 100%;
+}
+
+/* 左侧：智能体 */
+.message.bot {
+  flex-direction: row;
+}
+
+/* 右侧：用户 */
+.message.user {
+  flex-direction: row-reverse;
+  align-self: flex-end;
+  text-align: left;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin: 0 10px;
+  object-fit: cover;
+}
+
+/* icon-area: 包含图标的区域 */
+.icon-area {
+  margin-left: 300px;
+  display: flex;
+  justify-content: left; /* 图标居中 */
+  gap: 5px; /* 图标之间的间距 */
+  margin-top: 10px;
+  margin-bottom: 5px; /* 图标区域和输入框之间的间距 */
+}
+
+.upload-icon {
+  width: 40px;   /* 设置图标的宽度 */
+  height: 40px;  /* 设置图标的高度 */
+  cursor: pointer;  /* 设置鼠标指针形状 */
+  margin-right: 10px; /* 调整图标之间的间距 */
+}
+
+/* 文本框样式 */
+.text {
+  background-color: #e6f7ff;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 400px;
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+/* 用户文本框 */
+.message.user .text {
+  background-color: #d9f7be;
+}
+
+.input-area {
+  display: flex;
+  margin-top: 20px;
+  gap: 10px;
+  width:78%;
+  box-sizing: border-box;
+  margin-left: 300px;
+}
+
+.input-area button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #007acc;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  box-sizing: border-box;
+  min-width: 100px;
+}
+
+.input-area textarea {
+  width: 100%;            /* 占满父容器 */
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  resize: none;
+  height: 100px;
+  line-height: 1.5;
+}
+
+.input-area select {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+/* 颜色说明框调整 */
+.legend-box {
+  margin: 0;              /* 取消之前的上下margin居中 */
+  width: 140px;           /* 固定宽度，避免太宽 */
+  font-size: 14px;
+  padding: 10px;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  flex-shrink: 0;         /* 不允许缩小 */
+}
+
+/* 颜色说明竖排 */
+.legend {
+  display: flex;
+  flex-direction: column; /* 竖直排列 */
+  gap: 10px;              /* 竖直间距 */
+  margin-top: 8px;
+  flex-wrap: nowrap;      /* 禁止换行 */
+}
+
+/* 颜色块样式微调 */
+.legend span {
+  padding: 6px 10px;
+  border-radius: 4px;
+  color: #000;
+  font-weight: 500;
+  user-select: none;
+}

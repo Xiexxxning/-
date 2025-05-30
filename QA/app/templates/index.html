@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>医疗智能体问答系统</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>医疗智能体问答系统</h1>
+  </header>
+
+  <main>
+    <div class="legend-box">
+      <strong>颜色说明：</strong>
+      <div class="legend">
+        <span style="background:#6fadf3;">名词</span>
+        <span style="background:#7cf667;">动词</span>
+        <span style="background:#b041f5;">形容词</span>
+        <span style="background:#eeba11;">数词</span>
+        <span style="background:#73c1cd;">副词</span>
+        <span style="background:#fca644;">代词</span>
+        <span style="background:#f54545;">连词</span>
+        <span style="background:#ec0808;">人名</span>
+        <span style="background:#15b7ed;">地名</span>
+        <span style="background:#10e810;">机构</span>
+      </div>
+    </div>
+    <div class="chat-box" id="chat-box">
+      <!-- 对话内容会通过JS添加 -->
+    </div>
+
+    <!-- 隐藏的文件上传输入框 -->
+    <input type="file" id="file-input-image" style="display: none;" accept="image/*">
+    <input type="file" id="file-input-text" style="display: none;" accept=".txt,.doc,.docx,.pdf">
+    <input type="file" id="file-input-zip" style="display: none;" accept=".zip,.rar">
+
+    <!-- 隐藏区域存储分析结果文本（供下载使用） -->
+    <div id="resultDisplay" style="display:none;"></div>
+    <div id="text-result" style="margin: 20px; padding: 10px; border: 1px solid #ccc;"></div>
+  </main>
+
+      <!-- 图标区域 -->
+  <div class="icon-area">
+      <!-- 图片上传图标 -->
+    <img src="static/images/picture.png" alt="图片上传" id="upload-image" class="upload-icon avatar" title="点击上传图片">
+
+      <!-- 文档上传图标 -->
+    <img src="static/images/text.jpg" alt="文档上传" id="upload-text" class="upload-icon avatar" title="点击上传文档">
+
+      <!-- 压缩包上传图标 -->
+    <img src="static/images/zip.png" alt="压缩包上传" id="upload-zip" class="upload-icon avatar" title="点击上传压缩包">
+
+    <button id="downloadBtn" style="margin-top: 10px;">下载结果</button>
+  </div>
+
+    <!-- 输入框区域 -->
+  <div class="input-area">
+    <select id="mode-select">
+      <option value="qa" selected>基本问答</option>
+      <option value="pos">词性标注</option>
+      <option value="ner">实体识别</option>
+      <option value="summary">摘要</option>
+      <option value="zip">文本挖掘</option>
+    </select>
+    <textarea id="user-input" placeholder="请输入您的问题..." rows="1"></textarea>
+    <button id="send-btn">发送</button>
+  </div>
+
+<script src="/static/js/script.js"></script>
+</body>
+</html>
